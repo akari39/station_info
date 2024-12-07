@@ -1,27 +1,28 @@
 import 'package:flutter/material.dart';
+import 'package:marquee/marquee.dart';
+import 'package:station_info/models/models.dart';
 import 'package:station_info/platform.dart';
 import 'package:station_info/styles/colors.dart';
 
 class PlatformListItem extends StatelessWidget {
-  final int platformNo;
-  final String lineName;
-  final String bound;
+  final Platform platform;
   final bool isOval;
+  final bool infoOnly;
 
   const PlatformListItem({
     super.key,
-    required this.platformNo,
-    required this.lineName,
-    required this.bound,
     this.isOval = false,
+    required this.platform,
+    this.infoOnly = false,
   });
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => Navigator.of(context).push(
+      onTap: infoOnly ? null : () => Navigator.of(context).push(
         MaterialPageRoute(
-          builder: (builder) => PlatformPage(),
+          builder: (builder) => const PlatformPage(),
+          settings: RouteSettings(arguments: platform),
         ),
       ),
       child: Ink(
@@ -36,7 +37,7 @@ class PlatformListItem extends StatelessWidget {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
+                const Text(
                   'Platform',
                   textAlign: TextAlign.start,
                   style: TextStyle(
@@ -44,59 +45,70 @@ class PlatformListItem extends StatelessWidget {
                     fontWeight: FontWeight.w800,
                   ),
                 ),
-                SizedBox(height: 4),
+                const SizedBox(height: 4),
                 Text(
-                  '01',
+                  platform.platformNo.toString().padLeft(2, '0'),
                   textAlign: TextAlign.start,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 50,
                     fontWeight: FontWeight.w900,
                   ),
                 ),
               ],
             ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.end,
-              children: [
-                Container(
-                  color: isOval
-                      ? Colors.white
-                      : Theme.of(context).colorScheme.surfaceContainerHighest,
-                  padding: EdgeInsets.symmetric(vertical: 2, horizontal: 4),
-                  child: Text(
-                    'Keisei Main Line',
-                    textAlign: TextAlign.end,
-                    style: TextStyle(
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold,
+            Flexible(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  Container(
+                    color: isOval
+                        ? Colors.white
+                        : Theme.of(context).colorScheme.surfaceContainerHighest,
+                    padding:
+                        const EdgeInsets.symmetric(vertical: 2, horizontal: 4),
+                    child: Text(
+                      platform.lineName,
+                      textAlign: TextAlign.end,
+                      style: const TextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
-                ),
-                SizedBox(height: 10),
-                Row(
-                  textBaseline: TextBaseline.alphabetic,
-                  crossAxisAlignment: CrossAxisAlignment.baseline,
-                  children: [
-                    Text(
-                      'Ueno',
-                      textAlign: TextAlign.end,
-                      style: TextStyle(
-                        fontSize: 36,
-                        fontWeight: FontWeight.w800,
+                  const SizedBox(height: 10),
+                  Row(
+                    textBaseline: TextBaseline.alphabetic,
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      Flexible(
+                        child: SizedBox(
+                          height: 45,
+                          child: Marquee(
+                            text: platform.bound,
+                            style: const TextStyle(
+                              fontSize: 36,
+                              fontWeight: FontWeight.w800,
+                            ),
+                            scrollAxis: Axis.horizontal,
+                            crossAxisAlignment: CrossAxisAlignment.end,
+                            blankSpace: 100.0,
+                            velocity: 60.0,
+                          ),
+                        ),
                       ),
-                    ),
-                    SizedBox(width: 8),
-                    Text(
-                      'Bound for',
-                      textAlign: TextAlign.end,
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.w700,
+                      const SizedBox(width: 8),
+                      const Text(
+                        'Bound for',
+                        textAlign: TextAlign.end,
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.w700,
+                        ),
                       ),
-                    ),
-                  ],
-                )
-              ],
+                    ],
+                  )
+                ],
+              ),
             ),
           ],
         ),

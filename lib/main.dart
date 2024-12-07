@@ -1,5 +1,8 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:station_info/models/models.dart';
 import 'package:station_info/styles/colors.dart';
 import 'package:station_info/widgets/platform_list_item.dart';
 
@@ -33,13 +36,25 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  List<Platform>? platforms;
 
   @override
   void initState() {
     super.initState();
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
+    loadData();
   }
-  
+
+  void loadData() async {
+    String data = await DefaultAssetBundle.of(context)
+        .loadString("assets/json/stationData.json");
+    List<dynamic> dataJson = jsonDecode(data);
+    setState(() {
+      platforms =
+          dataJson.map((platform) => Platform.fromJson(platform)).toList();
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return AnnotatedRegion(
@@ -52,30 +67,36 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       child: Scaffold(
         backgroundColor: MyColors.backgroundColor,
-        appBar: PreferredSize(
+        appBar: const PreferredSize(
           preferredSize: Size.fromHeight(100),
           child: SafeArea(
             child: Center(
               child: Text(
-                'どこそこの駅',
+                'Kisaki Coast',
                 style: TextStyle(
                   fontSize: 36,
                   fontWeight: FontWeight.w900,
                   letterSpacing: 4,
                   decoration: TextDecoration.underline,
                   decorationColor: MyColors.titleTint,
-                  decorationThickness: 4,
+                  decorationThickness: 2,
                 ),
               ),
             ),
           ),
         ),
-        body: ListView(
-          children: [
-            PlatformListItem(platformNo: 1, lineName: 'Test', bound: 'test',),
-            PlatformListItem(platformNo: 1, lineName: 'Test', bound: 'test', isOval: true,)
-          ],
-        ),
+        body: platforms != null
+            ? ListView.builder(
+                itemCount: platforms!.length,
+                itemBuilder: (builder, index) {
+                  final platform = platforms![index];
+                  return PlatformListItem(
+                    platform: platform,
+                    isOval: index % 2 != 0,
+                  );
+                },
+              )
+            : Container(),
       ),
     );
   }

@@ -1,0 +1,178 @@
+[
+  {
+    "platformNo": 1,
+    "lineName": "Shiosora Line",
+    "bound": "Hama-Kawaguchi",
+    "trains": [
+      {
+        "time": "12:00",
+        "type": "limitedExpress",
+        "terminus": "Hama-Kawaguchi",
+        "timeLeft": 0,
+        "stops": ["Kisaki Coast", "Minami-Kasuga", "Hama-Kawaguchi"]
+      },
+      {
+        "time": "12:10",
+        "type": "rapid",
+        "terminus": "Hama-Kawaguchi",
+        "stops": ["Kisaki Coast", "Midoribashi", "Minami-Kasuga", "Hama-Kawaguchi"]
+      },
+      {
+        "time": "12:20",
+        "type": "local",
+        "terminus": "Hama-Kawaguchi",
+        "stops": ["Kisaki Coast", "Midoribashi", "Takaoka", "Minami-Kasuga", "Hama-Kawaguchi"]
+      },
+      {
+        "time": "12:30",
+        "type": "local",
+        "terminus": "Takaoka",
+        "stops": ["Kisaki Coast", "Midoribashi", "Takaoka"]
+      },
+      {
+        "time": "12:40",
+        "type": "rapid",
+        "terminus": "Minami-Kasuga",
+        "stops": ["Kisaki Coast", "Midoribashi", "Minami-Kasuga"]
+      },
+      {
+        "time": "12:50",
+        "type": "local",
+        "terminus": "Hama-Kawaguchi",
+        "stops": ["Kisaki Coast", "Midoribashi", "Takaoka", "Minami-Kasuga", "Hama-Kawaguchi"]
+      }
+    ]
+  },
+  {
+    "platformNo": 2,
+    "lineName": "Shiosora Line",
+    "bound": "Umioka Terminal",
+    "trains": [
+      {
+        "time": "12:05",
+        "type": "limitedExpress",
+        "terminus": "Umioka Terminal",
+        "timeLeft": 5,
+        "stops": ["Kisaki Coast", "Minato-Kita", "Umioka Terminal"]
+      },
+      {
+        "time": "12:15",
+        "type": "rapid",
+        "terminus": "Umioka Terminal",
+        "stops": ["Kisaki Coast", "Shiohara", "Minato-Kita", "Umioka Terminal"]
+      },
+      {
+        "time": "12:25",
+        "type": "local",
+        "terminus": "Shiohara",
+        "stops": ["Kisaki Coast", "Shiomachi", "Shiohara"]
+      },
+      {
+        "time": "12:35",
+        "type": "local",
+        "terminus": "Umioka Terminal",
+        "stops": ["Kisaki Coast", "Shiomachi", "Shiohara", "Minato-Kita", "Umioka Terminal"]
+      },
+      {
+        "time": "12:45",
+        "type": "rapid",
+        "terminus": "Minato-Kita",
+        "stops": ["Kisaki Coast", "Shiohara", "Minato-Kita"]
+      },
+      {
+        "time": "12:55",
+        "type": "local",
+        "terminus": "Umioka Terminal",
+        "stops": ["Kisaki Coast", "Shiomachi", "Shiohara", "Minato-Kita", "Umioka Terminal"]
+      }
+    ]
+  },
+  {
+    "platformNo": 3,
+    "lineName": "Kasatori Line",
+    "bound": "Higashi-Harano",
+    "trains": [
+      {
+        "time": "12:03",
+        "type": "limitedExpress",
+        "terminus": "Higashi-Harano",
+        "timeLeft": 3,
+        "stops": ["Kisaki Coast", "Nishikawa", "Higashi-Harano"]
+      },
+      {
+        "time": "12:13",
+        "type": "rapid",
+        "terminus": "Higashi-Harano",
+        "stops": ["Kisaki Coast", "Koyo", "Nishikawa", "Higashi-Harano"]
+      },
+      {
+        "time": "12:23",
+        "type": "local",
+        "terminus": "Higashi-Harano",
+        "stops": ["Kisaki Coast", "Tsukishima", "Hinode", "Koyo", "Nishikawa", "Higashi-Harano"]
+      },
+      {
+        "time": "12:33",
+        "type": "local",
+        "terminus": "Nishikawa",
+        "stops": ["Kisaki Coast", "Tsukishima", "Hinode", "Koyo", "Nishikawa"]
+      },
+      {
+        "time": "12:43",
+        "type": "rapid",
+        "terminus": "Higashi-Harano",
+        "stops": ["Kisaki Coast", "Koyo", "Nishikawa", "Higashi-Harano"]
+      },
+      {
+        "time": "12:53",
+        "type": "local",
+        "terminus": "Higashi-Harano",
+        "stops": ["Kisaki Coast", "Tsukishima", "Hinode", "Koyo", "Nishikawa", "Higashi-Harano"]
+      }
+    ]
+  },
+  {
+    "platformNo": 4,
+    "lineName": "Kasatori Line",
+    "bound": "Kasatori-Yama",
+    "trains": [
+      {
+        "time": "12:07",
+        "type": "limitedExpress",
+        "terminus": "Kasatori-Yama",
+        "timeLeft": 7,
+        "stops": ["Kisaki Coast", "Kasatori-Onsen", "Kasatori-Yama"]
+      },
+      {
+        "time": "12:17",
+        "type": "rapid",
+        "terminus": "Kasatori-Yama",
+        "stops": ["Kisaki Coast", "Yamabuki", "Kasatori-Onsen", "Kasatori-Yama"]
+      },
+      {
+        "time": "12:27",
+        "type": "local",
+        "terminus": "Kasatori-Yama",
+        "stops": ["Kisaki Coast", "Asunaro", "Yamabuki", "Kasatori-Onsen", "Kasatori-Yama"]
+      },
+      {
+        "time": "12:37",
+        "type": "local",
+        "terminus": "Kasatori-Onsen",
+        "stops": ["Kisaki Coast", "Asunaro", "Yamabuki", "Kasatori-Onsen"]
+      },
+      {
+        "time": "12:47",
+        "type": "rapid",
+        "terminus": "Kasatori-Yama",
+        "stops": ["Kisaki Coast", "Yamabuki", "Kasatori-Onsen", "Kasatori-Yama"]
+      },
+      {
+        "time": "12:57",
+        "type": "local",
+        "terminus": "Yamabuki",
+        "stops": ["Kisaki Coast", "Asunaro", "Yamabuki"]
+      }
+    ]
+  }
+]
