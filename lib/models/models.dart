@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 enum TrainType { local, rapid, express, limitedExpress }
 
 extension TrainTypeExtension on TrainType {
@@ -24,6 +26,35 @@ class Train {
     this.timeLeft,
     required this.stops,
   });
+
+  String? get typeText {
+    switch (type) {
+      case TrainType.local:
+        return 'Local';
+      case TrainType.rapid:
+        return 'Rapid';
+      case TrainType.limitedExpress:
+        return 'Express';
+      default:
+        return null;
+    }
+  }
+
+  Color? getTypeColor(BuildContext context) {
+    final ColorScheme colorScheme = Theme
+        .of(context)
+        .colorScheme;
+    switch (type) {
+      case TrainType.local:
+        return colorScheme.outlineVariant;
+      case TrainType.rapid:
+        return colorScheme.errorContainer;
+      case TrainType.limitedExpress:
+        return colorScheme.error;
+      default:
+        return null;
+    }
+  }
 
   factory Train.fromJson(Map<String, dynamic> json) {
     return Train(

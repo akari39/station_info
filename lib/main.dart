@@ -91,6 +91,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 itemBuilder: (builder, index) {
                   final platform = platforms![index];
                   return PlatformListItem(
+                    key: UniqueKey(),
                     platform: platform,
                     isOval: index % 2 != 0,
                   );
